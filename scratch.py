@@ -87,3 +87,20 @@ location = query_personal.json()['location']
 
 print('Location: ', location)
 
+# personal workout query string
+pw_query_string = r"https://api.onepeloton.com/api/user/{}/workouts?joins=ride&limit=100".format(user_id)
+
+q_personal_workouts = s.get(pw_query_string)
+
+print(pd.json_normalize(q_personal_workouts.json()).columns.values)
+
+## Show an example of information in the 'data' key
+print(q_personal_workouts.json()['data'][0].keys())
+
+print(q_personal_workouts.json()['data'][0]['id'])
+
+print(q_personal_workouts.json()['data'][0]['created_at'])
+
+print(q_personal_workouts.json()['data'][0]['device_type'])
+
+print(q_personal_workouts.json()['data'][0]['end_time'])
