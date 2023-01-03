@@ -75,4 +75,15 @@ birthday_datetime = datetime.datetime.fromtimestamp(birthday) + timedelta(days=1
 
 print(birthday_datetime)
 
-# print('Birthday: ', birthday)
+total_workouts = query_personal.json()['total_workouts']
+
+print('Total Workouts: ', total_workouts)
+
+gender = query_personal.json()['gender']
+
+print('Gender: ', gender)
+
+location = query_personal.json()['location']
+
+print('Location: ', location)
+
