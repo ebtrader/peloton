@@ -95,12 +95,24 @@ q_personal_workouts = s.get(pw_query_string)
 print(pd.json_normalize(q_personal_workouts.json()).columns.values)
 
 ## Show an example of information in the 'data' key
-print(q_personal_workouts.json()['data'][0].keys())
 
-print(q_personal_workouts.json()['data'][0]['id'])
+personal_workout_columns = q_personal_workouts.json()['data'][0].keys()
+print(personal_workout_columns)
 
-print(q_personal_workouts.json()['data'][0]['created_at'])
+personal_workout_columns_list = list(personal_workout_columns)
+print(personal_workout_columns_list)
 
-print(q_personal_workouts.json()['data'][0]['device_type'])
+# go through each of the column headers
 
-print(q_personal_workouts.json()['data'][0]['end_time'])
+# print(q_personal_workouts.json()['data'][0]['id'])
+#
+# print(q_personal_workouts.json()['data'][0]['created_at'])
+#
+# print(q_personal_workouts.json()['data'][0]['device_type'])
+#
+# print(q_personal_workouts.json()['data'][0]['end_time'])
+
+for i in personal_workout_columns_list:
+    print(i, ": ")
+    print(q_personal_workouts.json()['data'][0][i], '\n')
+
