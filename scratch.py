@@ -149,3 +149,7 @@ while counter in range(0, sum_of_workouts - 1):
     counter = counter + 1
 
 print(df)
+df.to_csv('personal_workouts_list.csv')
+
+
+
