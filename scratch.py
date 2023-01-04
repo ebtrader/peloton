@@ -112,7 +112,16 @@ print(personal_workout_columns_list)
 #
 # print(q_personal_workouts.json()['data'][0]['end_time'])
 
-for i in personal_workout_columns_list:
-    print(i, ": ")
-    print(q_personal_workouts.json()['data'][0][i], '\n')
+q_per_dict = q_personal_workouts.json()['summary']
+sum_of_workouts = sum(q_per_dict.values())
+print('Total Workouts: ', sum_of_workouts)
+
+
+counter = 0
+while counter in range (0,22):
+    for i in personal_workout_columns_list:
+        print(i, ": ")
+        print(q_personal_workouts.json()['data'][counter][i], '\n')
+    counter = counter + 1
+
 
