@@ -117,11 +117,35 @@ sum_of_workouts = sum(q_per_dict.values())
 print('Total Workouts: ', sum_of_workouts)
 
 
+# counter = 0
+# while counter in range(0, sum_of_workouts - 1):
+#     for i in personal_workout_columns_list:
+#         print(i, ": ")
+#         print(q_personal_workouts.json()['data'][counter][i], '\n')
+#     counter = counter + 1
+
+# https://stackoverflow.com/questions/73291995/iterate-though-column-names-of-a-dataframe-to-create-new-dataframe
+
+df = pd.DataFrame(columns=personal_workout_columns_list)
+print(df)
+
+# pw_list = []
+# for i in personal_workout_columns_list:
+#     pw_list.append(q_personal_workouts.json()['data'][0][i])
+# print(pw_list)
+# df.loc[len(df)] = pw_list
+# print(df)
+
+# https://sparkbyexamples.com/pandas/pandas-append-list-as-a-row-to-dataframe/#:~:text=By%20using%20df.,end%20of%20the%20pandas%20DataFrame.&text=Yields%20below%20output.,-Courses%20Fee%20Duration
+
+pw_list = []
 counter = 0
-while counter in range (0,22):
+while counter in range(0, sum_of_workouts - 1):
     for i in personal_workout_columns_list:
-        print(i, ": ")
-        print(q_personal_workouts.json()['data'][counter][i], '\n')
+        pw_list.append(q_personal_workouts.json()['data'][counter][i])
+    # print(pw_list)
+    df.loc[len(df)] = pw_list
+    pw_list.clear()
     counter = counter + 1
 
-
+print(df)
